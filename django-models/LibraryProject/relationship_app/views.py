@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.http import HttpResponse
 from django.views.generic import DetailView
 from .models import Book, Library
 
@@ -50,7 +49,7 @@ def logout_view(request):
     return render(request, 'relationship_app/logout.html')
 
 
-# Role-based views
+# Role-based access control
 def is_admin(user):
     return user.userprofile.role == 'Admin'
 
