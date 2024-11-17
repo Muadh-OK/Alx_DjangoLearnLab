@@ -14,9 +14,16 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.http import HttpResponse
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+# Simple function-based view for the home page
+def home_view(request):
+    return HttpResponse("<h1>Welcome to the Library Management System!</h1>")
 
 urlpatterns = [
+    path('', home_view, name='home'),  # Root URL path
     path('admin/', admin.site.urls),
+    path('relationship_app/', include('relationship_app.urls')),  # Include app URLs
 ]

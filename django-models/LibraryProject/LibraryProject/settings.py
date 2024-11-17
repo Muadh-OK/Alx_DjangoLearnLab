@@ -54,10 +54,10 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'LibraryProject.urls'
 
 TEMPLATES = [
-    {
+     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [BASE_DIR / "templates"],  # Global templates folder
+        'APP_DIRS': True,  # Enables app-specific templates
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
